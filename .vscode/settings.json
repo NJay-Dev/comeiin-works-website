@@ -1,0 +1,11 @@
+{
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/__pycache__": true
+  },
+  "liveServer.settings.root": "/dist",
+  "liveServer.settings.port": 8765,
+  "editor.formatOnSave": false,
+  "html.format.wrapLineLength": 0
+}
+
