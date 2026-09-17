@@ -35,6 +35,12 @@ The recommended Live Server extension can also serve the `dist` folder on port `
 - `dist/app.js` — catalogue and quotation interactions.
 - `dist/future.js` — animated background, navigation and WhatsApp widget.
 
+## Code formatting
+
+The project keeps its HTML, CSS, JavaScript and Python files expanded and consistently indented for review in VS Code. The recommended Prettier extension formats the web files whenever you save them.
+
+`dist/vanta.net.min.js` is the only intentionally compressed source file. It is the third-party Vanta NET animation library and should not be edited directly.
+
 ## Catalogue tools
 
 Install the optional Python dependencies:
@@ -70,4 +76,3 @@ In the GitHub repository, open **Settings → Pages** and select **GitHub Action
 ## Website scope
 
 The site supports product browsing and quotation requests. It does not include checkout, online payments, an inventory backend or automatic email delivery. The quotation form prepares an email draft for the visitor to review and send.
-
