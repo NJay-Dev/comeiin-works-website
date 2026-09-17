@@ -1435,6 +1435,92 @@ body > header {
   color: #53677f;
   margin: 0 0 20px;
 }
+.about-bbbee {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) 1.2fr;
+  gap: clamp(38px, 8vw, 120px);
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 50%, #1769d42e 0, transparent 34%),
+    linear-gradient(135deg, #06265ee8, #0b4597df);
+  color: white;
+}
+.about-bbbee:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#ffffff08 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-size: 54px 54px;
+  pointer-events: none;
+}
+.about-bbbee-badge,
+.about-bbbee-copy {
+  position: relative;
+  z-index: 1;
+}
+.about-bbbee-badge {
+  display: grid;
+  place-items: center;
+}
+.about-bbbee-badge:before {
+  content: '';
+  position: absolute;
+  width: 72%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fb79082b;
+  filter: blur(45px);
+}
+.about-bbbee-badge img {
+  position: relative;
+  width: min(100%, 480px);
+  height: auto;
+  filter: drop-shadow(0 28px 36px #00183770);
+}
+.about-bbbee-copy {
+  max-width: 680px;
+}
+.about-bbbee .eyebrow {
+  color: #ff9c4a;
+}
+.about-bbbee h2 {
+  color: white;
+  font:
+    650 clamp(40px, 5vw, 70px) / 1.05 Manrope,
+    sans-serif;
+  letter-spacing: -3px;
+  margin: 15px 0 22px;
+}
+.about-bbbee-copy > p:not(.eyebrow) {
+  max-width: 650px;
+  color: #dbe8fa;
+  font-size: 18px;
+  line-height: 1.8;
+}
+.about-bbbee-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 25px;
+  padding: 13px 18px;
+  border: 1px solid #ffffff36;
+  border-radius: 999px;
+  background: #ffffff12;
+  backdrop-filter: blur(14px);
+}
+.about-bbbee-status span {
+  color: #9fc5f8;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+}
+.about-bbbee-status strong {
+  color: white;
+  font-size: 14px;
+}
 .about-values {
   background: #eaf1f9c9;
 }
@@ -1541,9 +1627,22 @@ body > header {
     min-height: 480px;
   }
   .about-story,
+  .about-bbbee,
   .about-process,
   .about-cta {
     grid-template-columns: 1fr;
+  }
+  .about-bbbee {
+    text-align: center;
+  }
+  .about-bbbee-badge img {
+    width: min(78vw, 430px);
+  }
+  .about-bbbee-copy {
+    max-width: none;
+  }
+  .about-bbbee-copy > p:not(.eyebrow) {
+    margin-inline: auto;
   }
   .about-value-grid {
     grid-template-columns: 1fr;
@@ -1585,6 +1684,7 @@ body > header {
     gap: 10px;
   }
   .about-story h2,
+  .about-bbbee h2,
   .about-values h2,
   .about-process h2,
   .about-cta h2 {
@@ -1592,6 +1692,9 @@ body > header {
     letter-spacing: -1.5px;
   }
   .about-story-copy p {
+    font-size: 15px;
+  }
+  .about-bbbee-copy > p:not(.eyebrow) {
     font-size: 15px;
   }
   .about-process-visual {
