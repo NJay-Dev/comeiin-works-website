@@ -1,6 +1,6 @@
 const supplies = (window.COMEIIN_PRODUCTS || []).map((product) => ({
   ...product,
-  image: `assets/products/${product.id}-generated-v2.png`,
+  image: `assets/products/${product.id}-generated-v2.webp`,
   imageOrigin: 'AI-generated product image',
   imageStatus: 'Generated catalogue photography; client approval pending',
 }));
@@ -33,7 +33,7 @@ function saveQuote() {
   } catch {}
 }
 function cardMarkup(p) {
-  return `<article class="card"><div class="card-media"><a class="card-image" href="products/${p.id}.html" aria-label="View ${escapeHTML(p.name)}"><img src="${p.image}" alt="${p.imageOrigin === 'Client workbook image' ? 'Client-supplied' : 'Illustrative'} ${escapeHTML(p.name.toLowerCase())}" loading="lazy" width="640" height="560"></a><button class="quick-view" data-detail="${p.id}" aria-label="Quick view ${escapeHTML(p.name)}">Quick view</button></div><div class="category">${escapeHTML(p.category)}</div><h3><a href="products/${p.id}.html">${escapeHTML(p.name)}</a></h3><p>${escapeHTML(p.description)}</p>${p.pack ? `<p class="pack">${escapeHTML(p.pack)}${p.variants.length ? ' · ' + escapeHTML(p.variants.join(' / ')) : ''}</p>` : ''}<div class="card-bottom"><a class="detail-link" href="products/${p.id}.html">${p.kind === 'product' ? 'View product' : 'Explore range'} ↗</a><button class="add" data-detail="${p.id}" aria-label="Select ${escapeHTML(p.name)} for quote">+</button></div></article>`;
+  return `<article class="card"><div class="card-media"><a class="card-image" href="products/${p.id}.html" aria-label="View ${escapeHTML(p.name)}"><img src="${p.image}" alt="${p.imageOrigin === 'Client workbook image' ? 'Client-supplied' : 'Illustrative'} ${escapeHTML(p.name.toLowerCase())}" loading="lazy" decoding="async" width="640" height="560"></a><button class="quick-view" data-detail="${p.id}" aria-label="Quick view ${escapeHTML(p.name)}">Quick view</button></div><div class="category">${escapeHTML(p.category)}</div><h3><a href="products/${p.id}.html">${escapeHTML(p.name)}</a></h3><p>${escapeHTML(p.description)}</p>${p.pack ? `<p class="pack">${escapeHTML(p.pack)}${p.variants.length ? ' · ' + escapeHTML(p.variants.join(' / ')) : ''}</p>` : ''}<div class="card-bottom"><a class="detail-link" href="products/${p.id}.html">${p.kind === 'product' ? 'View product' : 'Explore range'} ↗</a><button class="add" data-detail="${p.id}" aria-label="Select ${escapeHTML(p.name)} for quote">+</button></div></article>`;
 }
 function revealCards(container) {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -108,7 +108,7 @@ function render() {
   }
 }
 function detailsMarkup(p) {
-  return `<div class="product-layout"><div><img class="product-photo" src="${p.image}" alt="${p.imageOrigin === 'Client workbook image' ? 'Client-supplied' : 'Illustrative'} ${escapeHTML(p.name)}"><p class="image-note">${p.imageOrigin === 'Client workbook image' ? 'Client-supplied product photo.' : 'Illustrative product image. Actual appearance may vary.'}</p></div><div><p class="eyebrow">${escapeHTML(p.category)}</p><h2>${escapeHTML(p.name)}</h2><p class="muted">${escapeHTML(p.description)}</p>${
+  return `<div class="product-layout"><div><img class="product-photo" src="${p.image}" alt="${p.imageOrigin === 'Client workbook image' ? 'Client-supplied' : 'Illustrative'} ${escapeHTML(p.name)}" decoding="async" fetchpriority="high" width="900" height="900"><p class="image-note">${p.imageOrigin === 'Client workbook image' ? 'Client-supplied product photo.' : 'Illustrative product image. Actual appearance may vary.'}</p></div><div><p class="eyebrow">${escapeHTML(p.category)}</p><h2>${escapeHTML(p.name)}</h2><p class="muted">${escapeHTML(p.description)}</p>${
     Object.keys(p.specs).length
       ? `<dl class="specs">${Object.entries(p.specs)
           .map(([k, v]) => `<div><dt>${escapeHTML(k)}</dt><dd>${escapeHTML(v)}</dd></div>`)

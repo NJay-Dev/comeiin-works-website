@@ -43,6 +43,12 @@ The project keeps its HTML, CSS, JavaScript and Python files expanded and consis
 
 ## Catalogue tools
 
+### Image performance
+
+The website serves compact WebP copies while retaining the full-quality PNG files as source masters. Product WebP files are limited to 900 pixels wide and are regenerated automatically when their source PNG changes.
+
+Homepage images below the first screen and catalogue thumbnails use lazy loading. Keep the homepage hero eager because it is the first major image visitors see.
+
 Install the optional Python dependencies:
 
 ```sh

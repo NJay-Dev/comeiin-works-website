@@ -10,6 +10,18 @@ for product in products:
     generated_path = f"assets/products/{product['id']}-generated-v2.png"
     if (D / generated_path).exists():
         product["image"] = generated_path
+        optimized_path = f"assets/products/{product['id']}-generated-v2.webp"
+        optimized_file = D / optimized_path
+        source_file = D / generated_path
+        if (
+            not optimized_file.exists()
+            or optimized_file.stat().st_mtime < source_file.stat().st_mtime
+        ):
+            with Image.open(source_file) as image:
+                if image.width > 900:
+                    height = round(image.height * 900 / image.width)
+                    image = image.resize((900, height), Image.Resampling.LANCZOS)
+                image.save(optimized_file, "WEBP", quality=84, method=6)
         product["imageSource"] = (
             "Built-in image generation — unified professional catalogue set"
         )
@@ -82,6 +94,9 @@ template = (D / "index.html").read_text()
 for p in products:
     page = template.replace("<head>\n", '<head>\n    <base href="../" />\n', 1).replace(
         "<body>", '<body data-product="' + p["id"] + '">', 1
+    )
+    page = page.replace(
+        'fetchpriority="high"', 'loading="lazy"\n            fetchpriority="low"', 1
     )
     start = page.index("<title>")
     end = page.index("</title>", start) + 8
