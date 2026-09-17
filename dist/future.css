@@ -580,6 +580,143 @@ footer {
   color: #c3d8f6;
   padding: 30px 5%;
 }
+.developer-signature {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 58px auto 44px;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  padding: 30px 5%;
+  overflow: hidden;
+  border-top: 1px solid #dbe5f2;
+  background:
+    radial-gradient(circle at 50% 0, #2872d31c, transparent 45%),
+    linear-gradient(135deg, #ffffffeb, #eff5fce8);
+  color: var(--ink);
+  text-decoration: none;
+}
+.developer-signature:before,
+.developer-signature:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 280px;
+  aspect-ratio: 1;
+  border: 1px solid #0a4ba415;
+  border-radius: 50%;
+  transition: transform 500ms ease;
+}
+.developer-signature:before {
+  left: 10%;
+  bottom: -220px;
+}
+.developer-signature:after {
+  right: 8%;
+  top: -230px;
+}
+.developer-signature:hover:before {
+  transform: translate(20px, -12px) scale(1.08);
+}
+.developer-signature:hover:after {
+  transform: translate(-20px, 12px) scale(1.08);
+}
+.developer-monogram {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #0d58ba, #062961);
+  box-shadow: 0 14px 28px #0629612b;
+  color: white;
+  font:
+    700 26px/1 Manrope,
+    sans-serif;
+  letter-spacing: -2px;
+  transition: transform 220ms ease;
+}
+.developer-monogram i {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 14px #fb7908b8;
+}
+.developer-signature:hover .developer-monogram {
+  transform: rotate(-4deg) scale(1.04);
+}
+.developer-signature-copy {
+  display: grid;
+  gap: 3px;
+  min-width: min(52vw, 330px);
+}
+.developer-signature-copy small {
+  color: var(--orange);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.developer-signature-copy strong {
+  font:
+    500 clamp(20px, 2.3vw, 30px) / 1.15 Manrope,
+    sans-serif;
+  letter-spacing: -1.2px;
+}
+.developer-signature-copy b {
+  color: var(--blue);
+  font-weight: 750;
+}
+.developer-signature-arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #b8cbe5;
+  border-radius: 50%;
+  color: var(--blue);
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+.developer-signature:hover .developer-signature-arrow {
+  transform: translate(3px, -3px);
+  background: var(--orange);
+  border-color: var(--orange);
+  color: white;
+}
+@media (max-width: 600px) {
+  .developer-signature {
+    grid-template-columns: 48px 1fr 38px;
+    gap: 12px;
+    min-height: 124px;
+    padding: 24px 6%;
+  }
+  .developer-monogram {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    font-size: 22px;
+  }
+  .developer-signature-copy {
+    min-width: 0;
+  }
+  .developer-signature-copy strong {
+    font-size: 17px;
+    letter-spacing: -0.7px;
+  }
+  .developer-signature-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}
 dialog {
   border-radius: 23px;
 }
