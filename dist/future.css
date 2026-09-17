@@ -584,12 +584,12 @@ footer {
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-columns: 58px auto 44px;
-  gap: 18px;
+  grid-template-columns: 44px auto 36px;
+  gap: 13px;
   align-items: center;
   justify-content: center;
-  min-height: 150px;
-  padding: 30px 5%;
+  min-height: 94px;
+  padding: 16px 5%;
   overflow: hidden;
   border-top: 1px solid #dbe5f2;
   background:
@@ -627,24 +627,24 @@ footer {
   position: relative;
   display: grid;
   place-items: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   background: linear-gradient(145deg, #0d58ba, #062961);
   box-shadow: 0 14px 28px #0629612b;
   color: white;
   font:
-    700 26px/1 Manrope,
+    700 21px/1 Manrope,
     sans-serif;
   letter-spacing: -2px;
   transition: transform 220ms ease;
 }
 .developer-monogram i {
   position: absolute;
-  top: 9px;
-  right: 9px;
-  width: 7px;
-  height: 7px;
+  top: 7px;
+  right: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--orange);
   box-shadow: 0 0 14px #fb7908b8;
@@ -655,7 +655,7 @@ footer {
 .developer-signature-copy {
   display: grid;
   gap: 3px;
-  min-width: min(52vw, 330px);
+  min-width: min(48vw, 290px);
 }
 .developer-signature-copy small {
   color: var(--orange);
@@ -665,7 +665,7 @@ footer {
 }
 .developer-signature-copy strong {
   font:
-    500 clamp(20px, 2.3vw, 30px) / 1.15 Manrope,
+    500 clamp(17px, 1.8vw, 22px) / 1.15 Manrope,
     sans-serif;
   letter-spacing: -1.2px;
 }
@@ -676,8 +676,8 @@ footer {
 .developer-signature-arrow {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border: 1px solid #b8cbe5;
   border-radius: 50%;
   color: var(--blue);
@@ -694,27 +694,27 @@ footer {
 }
 @media (max-width: 600px) {
   .developer-signature {
-    grid-template-columns: 48px 1fr 38px;
-    gap: 12px;
-    min-height: 124px;
-    padding: 24px 6%;
+    grid-template-columns: 40px 1fr 34px;
+    gap: 10px;
+    min-height: 82px;
+    padding: 13px 6%;
   }
   .developer-monogram {
-    width: 48px;
-    height: 48px;
-    border-radius: 15px;
-    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 19px;
   }
   .developer-signature-copy {
     min-width: 0;
   }
   .developer-signature-copy strong {
-    font-size: 17px;
+    font-size: 15px;
     letter-spacing: -0.7px;
   }
   .developer-signature-arrow {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
   }
 }
 dialog {
